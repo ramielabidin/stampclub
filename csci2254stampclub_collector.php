@@ -10,11 +10,8 @@ function csci2254stampclub_collector(){
 	if ( ! is_user_logged_in() ) {
 		echo "Sorry you must logged in as a collector to access this page.<br>
 				<a href=".  wp_login_url() . " title='Login'>Log in</a>";
-		//echo "<br>site url " . site_url();
-		//echo "<br>home url " . home_url();
 		return;
-	}
-		
+	}	
 	$current_user = wp_get_current_user();
 	$username = get_current_user_name($current_user);
 	echo "Hello $username.  Welcome to the stamp club:<br><br>
@@ -48,6 +45,7 @@ function display_addtocollection_form(){
 	}
 
 }
+
 function createmenuID( $name, $option ){
 	echo "<select name=\"$name\">";
 	foreach ( $option as $opt ){

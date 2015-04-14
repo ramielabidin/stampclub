@@ -11,7 +11,7 @@ Version: 0.1
 Author URI: nope
 */
 global $csci2254stamp_db_version;
-$stamp_db_version = "1.0";
+$csci2254stamp_db_version = "1.0";
 global $debug;
 $debug = 0;
 
@@ -25,22 +25,20 @@ function csci2254stampclub_install(){
 	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
 	$table_name = $wpdb->prefix . "csci2254stamps";    
-	$sql = 	"CREATE TABLE IF NOT EXISTS $table_name (
-		stampID 	int not null auto_increment,
-		stampname 	varchar(40) not null,
+	$sql = 	"
+	CREATE TABLE IF NOT EXISTS $table_name (
+		stampID 	    int not null auto_increment,
+		stampname 	    varchar(40) not null,
 		stamptype 		varchar(15) not null,
 		stamptopic 		varchar(15) not null,
 		stampvalue 		numeric(15,2),
 		stampcomment	varchar(250),
 		PRIMARY KEY (stampID)
 	) engine = InnoDB;";
-
    	dbDelta( $sql );
-   	   
-   add_option( "csci2254stamp_db_version", $csci2254stamp_db_version );
+   	add_option( "csci2254stamp_db_version", $csci2254stamp_db_version );
 }
 register_activation_hook( __FILE__, 'CSCI2254stampclub_install' );
-
 
 /** 
  * csci2254_stampclub_deactivate() - cleans up when the plugin is deactived. 
@@ -66,13 +64,11 @@ include 'csci2254stampclub_collector.php';
 include 'csci2254stampclub_addstamp.php';
 include 'csci2254stampclub_liststamps.php';
 
-
 /**
  * These are the functions to wire in the shortcodes
  **/ 
 include 'csci2254stampclub_user_support.php';
 add_action( 'register_form', 'csci2254stampclub_register_form' );
-
 
 /**
  * Redirect user after successful login. - this needs to be after the include
@@ -93,8 +89,7 @@ function my_login_redirect( $redirect_to, $request, $user ) {
 			// redirect them to the default place
 			return $redirect_to;
 		} 
-	}
-		
+	}	
 	return home_url();
 }
 add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );

@@ -25,8 +25,6 @@ function csci2254stampclub_addstamp(){
 }
 add_shortcode( 'csci2254stampclub_addstamp',   'csci2254stampclub_addstamp' );
 
-		
-		
 function csci2254stamp_club_displayform_addstamp(){
 ?>
 <br><br>Add a stamp<br><br>
@@ -64,7 +62,6 @@ function csci2254stamp_club_handleform_addstamp(){
     $stamptopic    = $_POST['stamptopic'];
     $stampcomment  = $_POST['stampcomment'];
 
-    
 	$table_name = $wpdb->prefix . "csci2254stamps";  
 	$wpdb->query( $wpdb->prepare ( 
 				"
@@ -77,6 +74,5 @@ function csci2254stamp_club_handleform_addstamp(){
 				$stamptopic,
 				$stampvalue,
 				$stampcomment
-	) );
-				
+	) );			
 }

@@ -42,6 +42,10 @@ function csci2254stampclub_registration_errors( $errors, $sanitized_user_login, 
     return $errors;
 }
 
+
+
+
+
 //3. Finally, save our extra registration user meta.
 add_action( 'user_register', 'csci2254stampclub_user_register' );
 function csci2254stampclub_user_register( $user_id ) {
