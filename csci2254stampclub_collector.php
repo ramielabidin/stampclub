@@ -10,6 +10,8 @@ function csci2254stampclub_collector(){
 	if ( ! is_user_logged_in() ) {
 		echo "Sorry you must logged in as a collector to access this page.<br>
 				<a href=".  wp_login_url() . " title='Login'>Log in</a>";
+		//echo "<br>site url " . site_url();
+		//echo "<br>home url " . home_url();
 		return;
 	}
 		
@@ -64,6 +66,7 @@ function csci2254stampclub_showcollection($current_user){
 	
 	if ( empty( $stamplist ) ){
 		echo "<h3>No stamps in your collection!  Enter some...</h3>";
+		return;
 	}
 	//echo "<pre>" . print_r($stamplist) . "</pre>";
 	$newlist = array_unique($stamplist);

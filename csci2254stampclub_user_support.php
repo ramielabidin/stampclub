@@ -17,8 +17,8 @@ function csci2254stampclub_register_form() {
 		<input type="text" name="firstname" id="firstname" class="input" size="25" />
 	    <label for="lastname">Last name</label>
 		<input type="text" name="lastname" id="lastname" class="input" size="25" />
-		<label for="yog">Graduation Year</label>
-		<?php createmenu("yog", array(2018, 2017, 2016, 2015)); ?>
+		<label for="yog">Membership Type</label>
+		<?php createmenu("memtype", array("collector", "scholar")); ?>
 	</p>
 <?php
 }
@@ -48,7 +48,7 @@ function csci2254stampclub_user_register( $user_id ) {
 	if ( isset( $_POST['netID'] ) ) {
     	update_user_meta(  $user_id, 'first_name', $_POST['firstname']  );
     	update_user_meta(  $user_id, 'last_name', $_POST['lastname']  );    	
-    	update_user_meta(  $user_id, 'csci2254_stampclub_yog', $_POST['yog']  );
+    	update_user_meta(  $user_id, 'csci2254_stampclub_role', $_POST['memtype']  );
     }
 }
 

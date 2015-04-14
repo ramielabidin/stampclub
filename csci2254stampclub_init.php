@@ -92,13 +92,9 @@ function my_login_redirect( $redirect_to, $request, $user ) {
 		if ( in_array( 'administrator', $user->roles ) ) {
 			// redirect them to the default place
 			return $redirect_to;
-		} else if ( is_user_collector( $user ) ) {
-			return get_permalink(get_page_by_title( 'Collector Home' )); 
-		} else if ( is_user_scholar( $user ) ) {
-			return get_permalink(get_page_by_title( 'Scholar Home' ));
 		} 
-	} else {
-		return $redirect_to;
 	}
+		
+	return home_url();
 }
 add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
