@@ -14,7 +14,7 @@ function csci2254stampclub_addstamp(){
 		return;
 	}
 		
-	if ( isset ($_POST['addstamp'])){
+	if ( isset ($_POST['addstamp'] ) ){
 		csci2254stamp_club_handleform_addstamp();
 	}
 	

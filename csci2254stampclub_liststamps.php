@@ -5,6 +5,11 @@ function csci2254stampclub_liststamps(){
 	$query = "SELECT * FROM $table_name";
 	$allstamps = $wpdb->get_results( $query );
 	
+	$current_user = wp_get_current_user();
+	$username = $current_user->user_firstname;
+	echo "Hi $username.  Here they are ...";
+
+	
 	if ( $allstamps ) {
 		csci2254stampclub_showstamps($allstamps);
 	} else 	{

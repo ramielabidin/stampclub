@@ -68,7 +68,6 @@ include 'csci2254stampclub_liststamps.php';
  * These are the functions to wire in the shortcodes
  **/ 
 include 'csci2254stampclub_user_support.php';
-add_action( 'register_form', 'csci2254stampclub_register_form' );
 
 /**
  * Redirect user after successful login. - this needs to be after the include

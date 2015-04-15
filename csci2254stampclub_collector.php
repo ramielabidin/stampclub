@@ -11,10 +11,17 @@ function csci2254stampclub_collector(){
 		echo "Sorry you must logged in as a collector to access this page.<br>
 				<a href=".  wp_login_url() . " title='Login'>Log in</a>";
 		return;
-	}	
+	}
 	$current_user = wp_get_current_user();
-	$username = get_current_user_name($current_user);
-	echo "Hello $username.  Welcome to the stamp club:<br><br>
+	$username = $current_user->user_firstname;
+
+	if ( ! is_user_collector($current_user) ) {
+		echo "Sorry $username, you must be a collector to access this page.<br>
+				<a href=".  wp_login_url() . " title='Login'>Log in</a>";
+		return;
+	}
+		
+	echo "  Welcome to the stamp club $username:<br><br>
 			Here is a list of all the stamps in your collection...";
 			
 	csci2254stampclub_addtocollection($current_user);
